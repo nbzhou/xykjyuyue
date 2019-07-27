@@ -1,0 +1,5 @@
+<view  class="main">
+<view class="item1">  <text>我要预约</text></view>
+<view class="item2">  <text>我的预约</text></view>
+
+</view>

@@ -42,95 +42,7 @@ Page({
       }
     })
 
-    //onShareAppMessage();
-    // onGotUserInfo();
-
-    //   wx.login({
-    //     success: function (r) {
-    //       var code = r.code;//登录凭证
-    //       console.log(code);
-    //       if (code) {
-    //         //2、调用获取用户信息接口
-    //         wx.getUserInfo({
-    //           success: function (res) {
-    //             //3.请求自己的服务器，解密用户信息 获取unionId等加密信息
-    //             var session_id = wx.getStorageSync('session_id');//本地取存储的sessionID  
-    //             wx.request({
-    //               url: app.data.httpserver + 'app/weixinlogin',//自己的服务接口地址
-    //               data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
-    //               success: function (request) {
-    //                 //4.解密成功后 获取自己服务器返回的结果
-    //                 console.log('dasdasdxxxxxxxxxxxxx');
-    //                 console.log(request)
-    //                 if (request.data.result == 1) {
-    //                   var userInfo = request.data.shopUser
-    //                   var session_id = request.data.session_id
-    //                   var header = { 'content-type': 'application/x-www-form-urlencoded', 'Cookie': 'session_id=' + session_id }
-    //                   var header_upload = { 'content-type': 'multipart/form-data', 'Cookie': 'session_id=' + session_id }
-    //                   wx.setStorageSync('header', header)
-    //                   wx.setStorageSync('header_upload', header_upload)
-    //                   wx.setStorageSync('session_id', session_id)
-    //                   wx.setStorageSync("userInfo", userInfo);
-    //                   wx.redirectTo({
-    //                     url: '../index/index'
-    //                   })
-    //                 } else {
-    //                   console.log('解密失败')
-    //                 }
-    //               },
-    //               fail: function () {
-    //                 console.log('系统错误')
-    //               }
-    //             })
-    //           },
-    //           fail: function () {
-    //             wx.showModal({
-    //               title: '警告',
-    //               content: '您点击了拒绝授权，将无法正常使用商城功能。请10分钟后再次点击授权，或者删除小程序重新进入。',
-    //               showCancel: false,
-    //               success: function (res) {
-    //                 if (res.confirm) {
-    //                   console.log('用户点击确定')
-    //                   that.setData({
-    //                     nullTip: false
-    //                   });
-    //                 }
-    //                 return;
-    //               }
-    //             })
-    //           }
-    //         })
-
-    //       } else {
-    //         console.log('获取用户登录态失败！' + r.errMsg)
-    //         return;
-    //       }
-    //     },
-    //     fail: function () {
-    //       console.log('登陆失败')
-    //       return;
-    //     }
-    //   })
-    // },
-    // get_open(){
-    //   wx.openSetting({
-    //     // success: (res) => {
-    //     //   if (res.authSetting["scope.userInfo"]) {////如果用户重新同意了授权登录
-
-    //     //   }
-    //     // }
-    //   }) 
-    // // wx.openSetting({
-    // //   success: function (res) {
-    // //     if (!res.authSetting["scope.userInfo"] || !res.authSetting["scope.userLocation"]) {
-    // //       //这里是授权成功之后 填写你重新获取数据的js
-    // //       //参考:
-    // //       that.getLogiCallback('', function () {
-    // //         callback('')
-    // //       })
-    // //     }
-    // //   }
-    // // })
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -218,24 +130,29 @@ function wxlogin() {
             console.log("encryptedData==>" + res.encryptedData);
             console.log("iv==>" + res.iv);
             wx.request({
-              url: app.data.httpserver + 'app/weixinlogin',//自己的服务接口地址
+              url: app.data.httpurl + 'app/weixinlogin',//自己的服务接口地址
               data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
               success: function (request) {
                 //4.解密成功后 获取自己服务器返回的结果
                 console.log('dasdasdxxxxxxxxxxxxx');
                 console.log(request)
                 if (request.data.result == 1) {
-                  var userInfo = request.data.shopUser
-                  var session_id = request.data.session_id
+                  const app = getApp();
+                 
+                  var userInfo = request.data.userInfo;
+                  app.globalData.userInfo = userInfo;
+                  var session_id = request.data.session_id;
+                  console.log(session_id);
                   var header = { 'content-type': 'application/x-www-form-urlencoded', 'Cookie': 'session_id=' + session_id }
                   var header_upload = { 'content-type': 'multipart/form-data', 'Cookie': 'session_id=' + session_id }
-                  wx.setStorageSync('header', header)
-                  wx.setStorageSync('header_upload', header_upload)
-                  wx.setStorageSync('session_id', session_id)
+                  wx.setStorageSync('header', header);
+                  wx.setStorageSync('header_upload', header_upload);
+                  wx.setStorageSync('session_id', session_id);
                   wx.setStorageSync("userInfo", userInfo);
-                  wx.redirectTo({
-                    url: '../index/index'
-                  })
+                  wx.switchTab({
+                    url: "../home/index"
+                  });
+
                 } else {
                   console.log('解密失败')
                 }

@@ -1,14 +1,39 @@
 {
   "pages": [
+    "pages/welcome/index",
+    "pages/home/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/welcome/index"
+    "pages/mine/index"
   ],
+  "sitemapLocation": "sitemap.json",
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#00A8F3",
+    "navigationBarTitleText": "主页",
+    "navigationBarTextStyle": "white"
   },
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "borderStyle": "black",
+    "position": "bottom",
+    "backgroundColor": "#f7f7fa",
+    "navigationBarTextStyle": "white",
+    "selectedColor": "#00a8f3",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "主页",
+        "iconPath": "images/tab/yuedu.png",
+        "selectedIconPath": "images/tab/yuedu_hl.png"
+       
+        
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tab/dianying.png",
+        "selectedIconPath": "images/tab/dianying_hl.png"
+      
+      }
+    ]
+  }
 }

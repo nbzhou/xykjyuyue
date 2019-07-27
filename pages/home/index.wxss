@@ -1,0 +1,28 @@
+.item1 {
+  flex-direction: row;
+  height: 100rpx;
+  background: linear-gradient(#598af0, #8fb5fe);
+  padding-top: 20rpx;
+  width: 40%;
+}
+
+.item2 {
+  flex-direction: row;
+  height: 100rpx;
+  background: linear-gradient(#4cc5ff, #9ee6ff);
+  padding-top: 20rpx;
+  width: 40%;
+}
+text{
+  padding-left: 20rpx;
+}
+view {
+  padding-top: 20rpx;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: white;
+}
