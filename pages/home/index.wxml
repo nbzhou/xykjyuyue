@@ -1,5 +1,15 @@
-<view  class="main">
-<view class="item1">  <text>我要预约</text></view>
-<view class="item2">  <text>我的预约</text></view>
+<view class="main">
+  <view class="moder">
+    <view class="moder1 moderview">
+      <text>我要预约</text>
+    </view>
+    <view class="moder2 moderview">
+      <text>我的预约</text>
+    </view>
+  </view>
+  <view class="moderrow">
+  <view class="modercolor">-</view>
+  </view>
 
+  
 </view>
