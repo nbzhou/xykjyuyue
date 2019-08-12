@@ -130,7 +130,7 @@ function wxlogin() {
             console.log("encryptedData==>" + res.encryptedData);
             console.log("iv==>" + res.iv);
             wx.request({
-              url: app.data.httpurl + 'app/weixinlogin',//自己的服务接口地址
+              url: app.data.httpurl + 'app/wx/weixinlogin',//自己的服务接口地址
               data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
               success: function (request) {
                 //4.解密成功后 获取自己服务器返回的结果
@@ -149,6 +149,7 @@ function wxlogin() {
                   wx.setStorageSync('header_upload', header_upload);
                   wx.setStorageSync('session_id', session_id);
                   wx.setStorageSync("userInfo", userInfo);
+                  console.log(userInfo)
                   wx.switchTab({
                     url: "../home/index"
                   });

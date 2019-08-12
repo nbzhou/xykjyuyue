@@ -1,39 +1,43 @@
 .moder {
+  
   display: flex;
   justify-content: space-around;
-  height: 200rpx;
+  height: 225rpx;
   width: 100%;
-  padding-top: 50rpx;
-}
-
-.moderview {
-  flex-direction: row;
-  height: 200rpx;
- 
-  width: 40%;
+  padding-top: 38rpx;
 }
 
 .moder1 {
-  background: linear-gradient(#598af0, #8fb5fe);
+  flex-direction: row;
+  height: 248rpx;
+  width: 42%;
+  /* background: linear-gradient(#598af0, #8fb5fe); */
+  background-color: #7e49e9;
+  color: white;
+  border-radius: 4rpx;
 }
 
 .moder2 {
-  background: linear-gradient(#4cc5ff, #9ee6ff);
+  flex-direction: row;
+  height: 248rpx;
+  width: 42%;
+  /* background: linear-gradient(#4cc5ff, #33ccff); */
+  background-color: #00bb53;
+  color: white;
+  border-radius: 4rpx;
 }
 
 .moderrow {
-  padding-left: 5%;
-  padding-top: 25rpx;
   flex-direction: row;
-  height: 200rpx;
+  height: 248rpx;
   width: 100%;
 }
 
 .modercolor {
-  height: 200rpx;
- 
-  width: 90%;
-  background: linear-gradient(#FB686B, #FF7174);
+  margin: 4%;
+  height: 248rpx;
+  width: 92%;
+  background: linear-gradient(#fb686b, #ff7174);
 }
 
 text {
@@ -43,4 +47,69 @@ text {
 .main {
   width: 100%;
   background-color: white;
+}
+
+.swiperclass {
+  
+  width: 690rpx;
+  height: 340rpx;
+  margin-top: 26rpx;
+  margin-left: 28rpx;
+}
+
+swiper-item image {
+  height: 100%;
+  width: 100%;
+  border-radius: 4rpx;
+}
+
+.appointclsss {
+    position: absolute;
+  display: flex;
+ 
+  padding-top: 48rpx;
+  margin-left: 17rpx;
+ 
+  border-bottom:solid #00A8F3;
+  border-width: 6rpx;
+  width: 66rpx;
+  opacity:0.9;
+
+}
+.textclass{
+   font-weight: Bold;
+    font-size: 32rpx;
+  display: flex;
+   padding-top: 14rpx;
+}
+
+.titileclass {
+  font-weight: Bold;
+  margin-top: 23rpx;
+  margin-left: 14rpx;
+}
+
+.detailclass {
+  font-weight: Regular;
+  margin-left: 14rpx;
+  margin-top: 14rpx;
+  font-size: 22rpx;
+}
+
+.detail {
+  margin-left: 14rpx;
+  font-weight: Regular;
+  font-size: 22rpx;
+}
+
+.recordclass {
+  height: 80rpx;
+  width: 74rpx;
+  margin-left: 200rpx;
+}
+
+.timeclass {
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: 200rpx;
 }

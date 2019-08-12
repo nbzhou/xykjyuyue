@@ -1,0 +1,66 @@
+<!--pages/subscribe/index.wxml-->
+<view>
+  <view class='content2'>
+  <form bindsubmit="onclikeOk" report-submit="true"  >
+    <view class='item'>
+      <text  class='item_title'>预约入口</text>
+      <picker bindchange="varietiesChange"  value="{{Varieties}}"  range="{{positionArray}}" range-key="name" name="appointObject"   >
+        <view class="picker">
+          当前选择：{{positionArray[Varieties].name}}
+        </view>
+      </picker>
+    </view>
+     <form bindsubmit="formIdSave" report-submit="{{true}}" >
+    <view class='item'>
+      <text class='item_title'>姓名</text>
+       <button  formType="submit" class="form_button"> 
+       <input type='text' value='{{name}}'  placeholder="姓名" name="name"></input>
+       </button>
+    </view>
+     </form>
+      <form bindsubmit="formIdSave" report-submit="{{true}}" >
+    <view class='item'>
+      <text class='item_title'>手机号</text>
+        <button  formType="submit" class="form_button"> 
+      <input type='number' value='{{phone}}'  placeholder="手机号" name="phone"></input></button>
+    </view>
+     </form>
+    <view class='item'>
+      <text class='item_title'>预约时间</text>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" name="appointTime">
+
+        <view>
+
+          <text>{{orderData}}</text>
+
+
+
+        </view>
+
+      </picker>
+    </view>
+
+    <view class='item'>
+      <text class='item_title'>时长</text> 
+      <picker bindchange="warehouseChange"  value="{{Warehouse}}" range="{{objectArray}}" range-key="name" name="appointDate">
+        <view class="picker">
+          当前选择：{{objectArray[Warehouse].name}}
+        </view>
+      </picker>
+
+    </view>
+  <view class='item'>
+      <text class='item_title'>具体时间</text> 
+        <input type='text' value='{{detaildate}}'  name="detaildate" disabled='disabled'>{{detaildate}}</input>
+
+    </view>
+    <view class='item'>
+
+      <textarea placeholder="事由" name="appointCause"></textarea>
+    </view>
+    <button class="submit_button" formType="submit" >确认预约</button>
+   
+</form>
+  </view>
+
+</view>

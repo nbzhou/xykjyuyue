@@ -1,15 +1,50 @@
 <view class="main">
+  <view class="swiperclass borderclass">
+    <swiper indicator-dots="true" autoplay="ture" interval="2000" class="borderclass">
+      <swiper-item>
+        <image src="../../images/iqiyi.png"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/iqiyi.png"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/iqiyi.png"></image>
+      </swiper-item>
+    </swiper>
+    <view class="appointclsss">
+   
+    </view>
+      <view  class="textclass"> <text>预约</text></view>
+  </view>
   <view class="moder">
-    <view class="moder1 moderview">
-      <text>我要预约</text>
+    <view class="moder1" catchtap="onPostTap">
+      <view class="titileclass">
+        <text>我要预约</text>
+      </view>
+      <view class="detailclass">
+        <text>可提前两天预约</text>
+      </view>
+       <view class="detail">
+        <text>会见活动</text>
+      </view>
+      <image src="../../images/icon/record.png" class="recordclass"></image>
     </view>
-    <view class="moder2 moderview">
-      <text>我的预约</text>
+    <view class="moder2" catchtap="toMyAppoint">
+      <view class="titileclass">
+        <text>我的预约</text>
+      </view>
+      <view class="detailclass">
+        <text>提前查看预约</text>
+      </view>
+       <view class="detail">
+        <text>方便安排</text>
+      </view>
+       <image src="../../images/icon/time.png" class="timeclass"></image>
     </view>
   </view>
-  <view class="moderrow">
-  <view class="modercolor">-</view>
-  </view>
+  <!-- <view class="moderrow">
+    <view class="modercolor borderclass">-</view>
+  </view> -->
 
-  
+
 </view>

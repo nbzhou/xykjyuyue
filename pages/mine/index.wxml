@@ -1,1 +1,47 @@
+<view class='head head-height'>
+  <block wx:if="{{!hasUserInfo && canIUse}}">
+    <button class="login-button head-height" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  </block>
+  <block wx:else>
+    <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  </block>
 
+</view>
+
+
+<view class="hr"></view>
+<view class='item'>
+  <view class="title">预约通知</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</view>
+<view class="line"></view>
+
+<view class='item' catchtap="toMyAppoint">
+  <view class="title" >我的预约</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</view>
+
+<view class="hr"></view>
+
+<view class="line"></view>
+<view class="item">
+  <view class="title">意见反馈</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item">
+  <view class="title">设置</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="hr"></view>

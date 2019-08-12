@@ -1,0 +1,159 @@
+/* pages/subscribe/index.wxss */
+
+page {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.showTips {
+  position: absolute;
+  left: 0;
+  top: -70rpx;
+  width: 750rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background-color: #c6d0e3;
+  color: #00276f;
+
+}
+
+.container2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.pageItem {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.content2 {
+  width: 100%;
+  /* border-top: solid 2rpx #333;
+  border-bottom: solid 2rpx #333; */
+  padding-top: 5%;
+}
+
+.item {
+  margin-top: 10rpx;
+  padding: 10rpx 10rpx;
+  width: 100%;
+  /* margin: 25rpx 0; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: solid 2rpx #ededed;
+  background-color: white;
+}
+
+.item_title {
+  width: 20%;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: 28rpx;
+  margin-left: 25rpx;
+}
+
+.item > input, picker {
+  text-align: left;
+  font-size: 27rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  width: 80%;
+  color: #808080;
+  /* border-radius: 10rpx; */
+}
+
+.item>textarea {
+  width: 99%;
+  font-size: 27rpx;
+  color: #808080;
+  height: 120rpx;
+}
+
+.item > select {
+  text-align: left;
+  font-size: 34rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  width: 490rpx;
+  /* border-radius: 10rpx; *//* border-bottom: solid 2rpx #EDEDED; */
+}
+
+.inputPlace {
+  font-size: 30rpx;
+}
+
+.tips_1 {
+  color: red;
+  margin-left: 10rpx;
+  width: 10rpx;
+}
+
+.tips {
+  height: 33rpx;
+  line-height: 33rpx;
+  margin-top: 180rpx;
+}
+
+.tips .img image {
+  width: 27rpx;
+  height: 33rpx;
+  margin: 0 10rpx 0 150rpx;
+}
+
+.tips text {
+  color: #1d4692;
+  font-size: 25rpx;
+}
+
+.submit_button {
+  margin-top: 50rpx;
+  width: 100%;
+}
+
+.checkbox {
+  text-align: center;
+  color: #1d4692;
+  margin: 50rpx 0;
+}
+
+.checkbox view, .checkbox navigator {
+  font-size: 26rpx;
+}
+
+.checkbox navigator {
+  display: inline;
+  text-decoration: underline;
+}
+
+checkbox .wx-checkbox-input {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 30rpx;
+}
+.form_button {
+    background-color: transparent;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 26rpx;
+margin-left: 10px;
+}
+.form_button::after {
+  border: 0px;
+
+}

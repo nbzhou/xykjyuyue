@@ -1,0 +1,65 @@
+<!--pages/subscribe/list/index.wxml-->
+<view class="viewclass">
+  <block wx:for="{{appointList}}" wx:key="key" wx:for-item="item">
+    <view class="pageclass" wx:if="{{item.state==5}}">
+      <view class="timeclass">
+        <text>预约:{{item.detaildate}}</text>
+      </view>
+      <view class="toclass">
+        <text>会见: {{item.appointObject}}</text>
+      </view>
+      <view class="expireclass">
+        <text>已过期</text>
+      </view>
+    </view>
+    <view class="pageclass" wx:elif="{{item.state==4}}">
+      <view class="timeclass">
+        <text>预约:{{item.detaildate}}</text>
+      </view>
+      <view class="toclass">
+        <text>会见: {{item.appointObject}}</text>
+      </view>
+      <view class="colseclass">
+        <text>已取消</text>
+      </view>
+    </view>
+    <view class="pageclass" wx:else>
+      <view class="timeclass">
+        <text>预约:{{item.detaildate}}</text>
+      </view>
+      <view class="toclass">
+        <text>会见: {{item.appointObject}}</text>
+      </view>
+      <view class="appointclass">
+        <text>预约中</text>
+      </view>
+    </view>
+  </block>
+  <!-- <view class="pageclass">
+    <view class="timeclass">
+      <text>预约: 2019年9月8日 15:20</text>
+    </view>
+    <view class="toclass">
+      <text>会见: 董事长</text>
+      <text class="appointclass">预约中</text>
+    </view>
+  </view>
+  <view class="pageclass">
+    <view class="timeclass">
+      <text>预约: 2019年9月8日 15:20</text>
+    </view>
+    <view class="toclass">
+      <text>会见: 董事长</text>
+      <text class="colseclass">已取消</text>
+    </view>
+  </view>
+  <view class="pageclass">
+    <view class="timeclass">
+      <text>预约: 2019年9月8日 15:20</text>
+    </view>
+    <view class="toclass">
+      <text>会见: 董事长</text>
+      <text class="expireclass">已过期</text>
+    </view>
+  </view> -->
+</view>

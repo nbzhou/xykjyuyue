@@ -1,0 +1,16 @@
+<!--pages/result/index.wxml-->
+<view>
+  <view>
+    <image src="/images/ok.png"></image>
+  </view>
+  <view class="textclassok">
+    <text>预约成功</text>
+  </view>
+
+  <view class="textclassmess">
+    <text> 请注意查看预约成功推送消息</text>
+  </view>
+  <view>
+    <button catchtap="onPostTap">确认</button>
+  </view>
+</view>

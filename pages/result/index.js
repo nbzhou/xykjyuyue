@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/result/index.js
 Page({
 
   /**
@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  onPostTap:function(){
+    wx.switchTab({
+      url: "../home/index"
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

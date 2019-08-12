@@ -1,0 +1,29 @@
+/* pages/result/index.wxss */
+
+image {
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 138rpx;
+  margin-left: 276rpx;
+}
+
+.textclassok {
+  font-size: 40rpx;
+  margin-left: 290rpx;
+  margin-top: 46rpx;
+}
+
+.textclassmess {
+  font-size: 28rpx;
+  margin-left: 178rpx;
+  margin-top: 28rpx;
+  color: #888;
+}
+
+button {
+  background-color: #09bb07;
+  color: white;
+  height: 88rpx;
+  width: 690rpx;
+  margin-top: 138rpx;
+}

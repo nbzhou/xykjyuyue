@@ -4,13 +4,18 @@
     "pages/home/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/result/index",
+    "pages/subscribe/index",
+    "pages/subscribe/detail/index",
+    "pages/subscribe/list/index"
   ],
   "sitemapLocation": "sitemap.json",
   "window": {
     "navigationBarBackgroundColor": "#00A8F3",
     "navigationBarTitleText": "主页",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F4F4F4"
   },
   "tabBar": {
     "borderStyle": "black",
@@ -24,15 +29,12 @@
         "text": "主页",
         "iconPath": "images/tab/yuedu.png",
         "selectedIconPath": "images/tab/yuedu_hl.png"
-       
-        
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
         "iconPath": "images/tab/dianying.png",
         "selectedIconPath": "images/tab/dianying_hl.png"
-      
       }
     ]
   }

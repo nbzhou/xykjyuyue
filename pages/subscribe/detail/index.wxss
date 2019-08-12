@@ -1,0 +1,62 @@
+/* pages/subscribe/detail/index.wxss */
+
+page {
+  background-color: #f7f7f7;
+}
+
+.viewclass {
+  margin-top: 42rpx;
+}
+
+.pageclass {
+  width: 690rpx;
+  height: 168rpx;
+  background-color: white;
+  border-radius: 8rpx;
+  margin: 24rpx 30rpx;
+}
+
+.timeclass {
+  color: #080808;
+  font-size: 30rpx;
+  padding-top: 42rpx;
+  padding-left: 40rpx;
+  font-weight: Bold;
+}
+
+.toclass {
+  position: absolute;
+  color: #c1c1c1;
+  font-size: 30rpx;
+  padding-top: 13rpx;
+  padding-left: 40rpx;
+  font-weight: Medium;
+  font-family: PingFang-SC-Medium;
+}
+
+.appointclass {
+  flex-direction: row;
+  color: #13a9ff;
+  margin-left: 544rpx;
+  font-size: 30rpx;
+  font-weight: Medium;
+  padding-top: 13rpx;
+}
+
+.colseclass {
+  flex-direction: row;
+  color: #ed4214;
+  margin-left: 544rpx;
+  font-size: 30rpx;
+  font-weight: Medium;
+  padding-top: 13rpx;
+}
+
+.expireclass {
+  flex-direction: row;
+  color: #ed903e;
+  margin-left: 544rpx;
+  font-size: 30rpx;
+  font-weight: Medium;
+  padding-top: 13rpx;
+}

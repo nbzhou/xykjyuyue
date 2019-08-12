@@ -1,29 +1,37 @@
-// pages/home/index.js
+// pages/subscribe/detail/index.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    appointList: '',
+    page:''
+  },
 
-  },
-  toMyAppoint: function() {
-    wx.navigateTo({
-      url: '../subscribe/list/index',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-  },
-  onPostTap: function() {
-    wx.navigateTo({
-      url: '../subscribe/index',
+    var that = this;
+    var openId = wx.getStorageSync("userInfo").openId;
+    wx.request({
+      url: app.data.httpurl + 'app/appointment/list',
+      data: {
+        page: 1,
+        size: 10,
+        openId: openId
+      },
+      success: function(data) {
+        that.setData({
+          appointList: data.data.list,
+          page:data.data.page
+        })
+      }
     })
-
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -72,6 +80,4 @@ Page({
   onShareAppMessage: function() {
 
   }
-
-
 })
