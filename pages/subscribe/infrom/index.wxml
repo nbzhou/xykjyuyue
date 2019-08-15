@@ -1,0 +1,105 @@
+<!--pages/subscribe/infrom/index.wxml-->
+<view class="viewclass">
+  <block wx:for="{{appointrecordList}}" wx:key="key" wx:for-item="item">
+    <view wx:if="{{item.state==1}}">
+      <view class="createTime">
+        <view class="createTimeclass">
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class="pageclass">
+        <view class="titileclass">
+          <text>醒悦提醒</text>
+          <view class="butclass">
+            <text>.\n.\n.</text>
+          </view>
+        </view>
+        <view class="hr"></view>
+        <view class="timeclass">
+          <text>预约成功通知</text>
+        </view>
+        <view class="timeclassdetail">
+          <text>2019年9月8日 15:20</text>
+        </view>
+        <view class="pagedetail">
+          <view class="toclass">
+            <text>姓名</text>
+            <text class="fontclass"> {{item.name}}</text>
+          </view>
+          <view class="toclass">
+            <text>电话</text>
+            <text class="fontclass"> {{item.phone}}</text>
+          </view>
+          <view class="toclass">
+            <text>预约时间</text>
+            <text class="fontclass"> {{item.detaildate}}</text>
+          </view>
+          <view class="toclass">
+            <text>预约码</text>
+            <text class="fontclass">{{item.appointId}}</text>
+          </view>
+          <view class="toclass">
+            <text>联系人</text>
+            <text class="fontclass">123456</text>
+          </view>
+          <view class="toclass">
+            <text>预约编号</text>
+            <text class="fontclass">{{item.appointId}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:elif="{{item.state==0}}">
+      <view class="createTime">
+        <view class="createTimeclass">
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class="closepageclass">
+        <view class="titileclass">
+          <text>醒悦提醒</text>
+          <view class="butclass">
+            <text>.\n.\n.</text>
+          </view>
+        </view>
+        <view class="hr"></view>
+        <view class="timeclass">
+          <text>预约取消通知</text>
+        </view>
+        <view class="timeclassdetail">
+          <text>2019年9月8日 15:20</text>
+        </view>
+        <view class="pagedetail">
+          <view class="toclass">
+            <text>姓名</text>
+            <text class="fontclass">{{item.name}}</text>
+          </view>
+          <view class="toclass">
+            <text>时间</text>
+            <text class="fontclass">{{item.createTime}}</text>
+          </view>
+          <view class="toclass">
+            <text>预约时间</text>
+            <text class="fontclass">{{item.detaildate}}</text>
+          </view>
+          <view class="toclass">
+            <text>取消原因</text>
+            <text class="fontclass">{{item.remark}}</text>
+          </view>
+          <view class="toclass">
+            <text>预约号</text>
+            <text class="fontclass">{{item.appointId}}</text>
+          </view>
+          <view class="toclass">
+            <text>预约码</text>
+            <text class="fontclass">{{item.appointId}}</text>
+          </view>
+        </view>
+        <view class="toclass">
+          <text>联系方式</text>
+          <text class="fontclass">{{item.id}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

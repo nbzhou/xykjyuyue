@@ -17,7 +17,8 @@ Page({
 
     multiIndex: [0, 0, 0, 0],
 
-    array: ['30分钟', '1小时'],
+
+
 
     objectArray: [
 
@@ -51,6 +52,8 @@ Page({
 
       },
     ],
+    entire: "",
+    detailentire: "",
     positionArray: [
 
       {
@@ -108,67 +111,95 @@ Page({
   onclikeOk: function(e) {
 
     var that = this;
-
-    var openId = wx.getStorageSync("userInfo").openId;
-    var formId = e.detail.formId;
-    console.log("e.detail.formId;" + e.detail.formId);
-    var appointObject = this.data.positionArray[e.detail.value.appointObject].id;
-    var name = e.detail.value.name;
-    var phone = e.detail.value.phone;
-    var appointTime = this.data.multiArray[0][e.detail.value.appointTime[0]] + this.data.multiArray[1][e.detail.value.appointTime[1]] + this.data.multiArray[2][e.detail.value.appointTime[2]] + this.data.multiArray[3][e.detail.value.appointTime[3]];
-    appointTime = appointTime.replace('年', '-');
-    appointTime = appointTime.replace('月', '-');
-    appointTime = appointTime.replace('日', ' ');
-    appointTime = appointTime.replace('时', ':00:00');
-    var appointDate = this.data.objectArray[e.detail.value.appointDate].id;
-
-
-
-    switch (parseInt(appointDate)) {
-
-      case 0:
-        appointDate = 30;
-        break;
-      case 1:
-        appointDate = 60;
-        break;
-      case 2:
-        appointDate = 90;
-        break;
-      case 3:
-        appointDate = 120;
-
-
-    }
-    var appointCause = e.detail.value.appointCause;
     var detaildate = e.detail.value.detaildate;
+    console.log(detaildate)
+    if (detaildate =='请您另择预约时间'){
+      wx.showToast({
+        title: '预定已满',
+        icon: 'none',
+        duration: 2000
+      })
+      setTimeout(function () {
+        wx.hideToast()
+
+      }, 2000)
+    }
+    if (detaildate != '请您另择预约时间') {
+      var openId = wx.getStorageSync("userInfo").openId;
+      var formId = e.detail.formId;
+      console.log("e.detail.formId;" + e.detail.formId);
+      var appointObject = this.data.positionArray[e.detail.value.appointObject].id;
+      var name = e.detail.value.name;
+      var phone = e.detail.value.phone;
+      var appointTime = this.data.multiArray[0][e.detail.value.appointTime[0]] + this.data.multiArray[1][e.detail.value.appointTime[1]] + this.data.multiArray[2][e.detail.value.appointTime[2]] + this.data.multiArray[3][e.detail.value.appointTime[3]];
+      appointTime = appointTime.replace('年', '-');
+      appointTime = appointTime.replace('月', '-');
+      appointTime = appointTime.replace('日', ' ');
+      appointTime = appointTime.replace('时', ':00:00');
+      var appointDate = this.data.objectArray[e.detail.value.appointDate].id;
 
 
 
+      switch (parseInt(appointDate)) {
 
-    wx.request({
-      url: app.data.httpurl + 'app/appointment/save',
-      data: {
-        formId: formId,
-        openId: openId,
-        appointObject: appointObject,
-        name: name,
-        phone: phone,
-        appointTime: appointTime,
-        appointDate: appointDate,
-        appointCause: appointCause,
-        detaildate: detaildate
-      },
-      success: function(request) {
-        
-        if (request.data.code > 0) {
-          console.log(request.data.code + "-----------预约成功")
-          wx.reLaunch({
-            url: '../result/index'
-          });
-        }
+        case 0:
+          appointDate = 30;
+          break;
+        case 1:
+          appointDate = 60;
+          break;
+        case 2:
+          appointDate = 90;
+          break;
+        case 3:
+          appointDate = 120;
+
+
       }
-    })
+      var appointCause = e.detail.value.appointCause;
+
+
+
+
+      wx.request({
+        url: app.data.httpurl + 'app/appointment/save',
+        data: {
+          formId: formId,
+          openId: openId,
+          appointObject: appointObject,
+          name: name,
+          phone: phone,
+          appointTime: appointTime,
+          appointDate: appointDate,
+          appointCause: appointCause,
+          detaildate: detaildate
+        },
+        success: function(request) {
+
+          if (request.data.code ==1) {
+            console.log(request.data.code + "-----------预约成功")
+            wx.reLaunch({
+              url: '../result/index'
+            });
+          }
+          if(request.data.code==2){
+
+            wx.showToast({
+              title: '预定已满',
+              icon: 'loading',
+              duration: 2000
+            })
+            setTimeout(function () {
+              wx.hideToast()
+           
+            }, 2000)
+
+          }
+        
+        }
+      })
+    }
+
   },
 
   //月份计算
@@ -456,7 +487,7 @@ Page({
     console.log(surplusHour)
     // orderData: year + '年' + surplusMonth[0] + surplusDay[0] + surplusHour[0][0],
     this.setData({
-   
+
       multiArray: [
         [year + '年'],
 
@@ -799,7 +830,7 @@ Page({
   //value 改变时触发 change 事件
 
   bindMultiPickerChange: function(e) {
-   var that = this;
+    var that = this;
     var dateStr =
 
       this.data.multiArray[0][this.data.multiIndex[0]] +
@@ -827,39 +858,94 @@ Page({
     appointTime = appointTime.replace('月', '-');
     appointTime = appointTime.replace('日', ' ');
     appointTime = appointTime.replace('时', ':00:00');
- 
-   
+
+
     wx.request({
       url: app.data.httpurl + 'app/appointment/selectDetaiDate',
       data: {
         time: appointTime
       },
-    
+
       success: function(request) {
         var detaildate = appointTime;
-     
-        if (request.data!=""){
-          detaildate= request.data;
-       
+
+        if (request.data != "") {
+          detaildate = request.data;
+
         }
-     
+
         that.setData({
-        
+
           detaildate: detaildate
         })
-       
-       
-        
-       
-      
+        var halfhour = new Date(Date.parse(appointTime) + 0.5 * 60 * 60 * 1000);
+        var onehour = new Date(Date.parse(appointTime) + 1 * 60 * 60 * 1000);
+        var onehalfhour = new Date(Date.parse(appointTime) + 1.5 * 60 * 60 * 1000);
+        var twohour = new Date(Date.parse(appointTime) + 2 * 60 * 60 * 1000);
+        var detailtime = new Date(that.data.detaildate);
+
+        console.log(halfhour + "/" + detailtime)
+
+
+        let halfhourvalue = halfhour - detailtime;
+        let onehourvalue = onehour - detailtime;
+        let onehalfhourvalue = onehalfhour - detailtime;
+        let twohourvalue = twohour - detailtime;
+        console.log(halfhourvalue + "/" + onehourvalue + "/" + onehalfhourvalue + "/" + twohourvalue)
+
+        that.setData({
+          objectArray: [{
+              id: 0,
+              name: '30分钟'
+            },
+            {
+              id: 1,
+              name: '1小时'
+            },
+            {
+              id: 2,
+              name: '1.5小时'
+            },
+            {
+              id: 3,
+              name: '2小时'
+            },
+          ],
+          entire: '',
+          detailentire: ''
+        })
+
+
+        if (halfhourvalue == 0) {
+          that.data.objectArray.splice(3,4);
+
+        }
+        if (onehourvalue == 0) {
+          that.data.objectArray.splice(2, 4);
+
+        }
+        if (onehalfhourvalue == 0) {
+          that.data.objectArray.splice(1.4);
+
+        }
+        if (twohourvalue == 0) {
+          that.data.objectArray.splice(0, 4);
+
+
+          that.setData({
+            entire: '已满',
+            detailentire: '请您另择预约时间',
+            detaildate: ''
+          })
+        }
+        that.setData({
+          objectArray: that.data.objectArray,
+          Warehouse: 0
+        })
+
       }
     })
-    // var datetab=new Date(Date.parse(appointTime) + 2 * 60 * 60 * 1000)
-    // console.log(datetab + "/" + that.getDate("detaildate"))
-    // console.log(datetab.localeCompare(that.getDate("detaildate")))
-    // if (datetab.localeCompare(that.getDate("detaildate")) == -1) {
-    //   console.log(datetab)
-    // }
+
   },
 
 

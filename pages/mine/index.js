@@ -11,6 +11,11 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  toMymess:function(){
+    wx.navigateTo({
+      url: '../subscribe/infrom/index',
+    })
+  },
   toMyAppoint: function() {
     wx.navigateTo({
       url: '../subscribe/list/index',

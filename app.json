@@ -1,14 +1,18 @@
 {
   "pages": [
+     
+   "pages/subscribe/index",
     "pages/welcome/index",
-    "pages/home/index",
     "pages/index/index",
+    "pages/home/index",
     "pages/logs/logs",
     "pages/mine/index",
     "pages/result/index",
-    "pages/subscribe/index",
+    
     "pages/subscribe/detail/index",
-    "pages/subscribe/list/index"
+    "pages/subscribe/list/index",
+    "pages/subscribe/infrom/index"
+  
   ],
   "sitemapLocation": "sitemap.json",
   "window": {

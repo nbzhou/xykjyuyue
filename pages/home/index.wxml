@@ -1,20 +1,15 @@
 <view class="main">
   <view class="swiperclass borderclass">
     <swiper indicator-dots="true" autoplay="ture" interval="2000" class="borderclass">
-      <swiper-item>
-        <image src="../../images/iqiyi.png"></image>
-      </swiper-item>
-      <swiper-item>
-        <image src="../../images/iqiyi.png"></image>
-      </swiper-item>
-      <swiper-item>
-        <image src="../../images/iqiyi.png"></image>
-      </swiper-item>
+      <block wx:for="{{imgList}}" wx:key="key" wx:for-item="item">
+        <swiper-item>
+          <image src="{{fileurl}}{{item.images}}"></image>
+        </swiper-item>
+      </block>
     </swiper>
-    <view class="appointclsss">
-   
-    </view>
-      <view  class="textclass"> <text>预约</text></view>
+  </view>
+  <view class="appointclsss">
+    <view class="textclass"> 预约</view>
   </view>
   <view class="moder">
     <view class="moder1" catchtap="onPostTap">
@@ -24,7 +19,7 @@
       <view class="detailclass">
         <text>可提前两天预约</text>
       </view>
-       <view class="detail">
+      <view class="detail">
         <text>会见活动</text>
       </view>
       <image src="../../images/icon/record.png" class="recordclass"></image>
@@ -36,15 +31,13 @@
       <view class="detailclass">
         <text>提前查看预约</text>
       </view>
-       <view class="detail">
+      <view class="detail">
         <text>方便安排</text>
       </view>
-       <image src="../../images/icon/time.png" class="timeclass"></image>
+      <image src="../../images/icon/time.png" class="timeclass"></image>
     </view>
   </view>
   <!-- <view class="moderrow">
     <view class="modercolor borderclass">-</view>
   </view> -->
-
-
 </view>

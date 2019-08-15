@@ -44,14 +44,14 @@
       <text class='item_title'>时长</text> 
       <picker bindchange="warehouseChange"  value="{{Warehouse}}" range="{{objectArray}}" range-key="name" name="appointDate">
         <view class="picker">
-          当前选择：{{objectArray[Warehouse].name}}
+          当前选择：{{objectArray[Warehouse].name}}<text>{{entire}}</text>
         </view>
       </picker>
 
     </view>
   <view class='item'>
       <text class='item_title'>具体时间</text> 
-        <input type='text' value='{{detaildate}}'  name="detaildate" disabled='disabled'>{{detaildate}}</input>
+        <input type='text' value='{{detaildate}}{{detailentire}}'  name="detaildate" disabled='disabled'>{{detaildate}}</input>
 
     </view>
     <view class='item'>

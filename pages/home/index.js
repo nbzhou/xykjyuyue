@@ -1,11 +1,13 @@
 // pages/home/index.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgList:"",
+    fileurl:'http://192.168.0.107:4000/fileserver/'
   },
   toMyAppoint: function() {
     wx.navigateTo({
@@ -16,7 +18,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this;
+    var openId = wx.getStorageSync("userInfo").openId;
+    wx.request({
+      url: app.data.httpurl + 'app/img/list',
+      success: function (data) {
+        console.log(data.data.list)
+        that.setData({
+          imgList: data.data.list
+        })
+      }
+    })
   },
   onPostTap: function() {
     wx.navigateTo({

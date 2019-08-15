@@ -13,7 +13,7 @@
 
 
 <view class="hr"></view>
-<view class='item'>
+<view class='item'  catchtap="toMymess">
   <view class="title">预约通知</view>
   <view class="detail2">
     <text>></text>

@@ -157,3 +157,6 @@ margin-left: 10px;
   border: 0px;
 
 }
+.picker text{
+  color: red;
+}
